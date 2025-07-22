@@ -5,12 +5,15 @@ obj/
 *.suo
 *.user
 appsettings.Development.json
+.vs/
 
 # Angular
 node_modules/
 dist/
 *.log
 .angular/
+.history/
+.angular/cache
 
 # Python/Flask
 __pycache__/
