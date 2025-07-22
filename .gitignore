@@ -1,0 +1,28 @@
+# .NET
+bin/
+obj/
+*.csproj.user
+*.suo
+*.user
+appsettings.Development.json
+
+# Angular
+node_modules/
+dist/
+*.log
+.angular/
+
+# Python/Flask
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+*.egg-info/
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
