@@ -1,0 +1,38 @@
+/* Landing Page Layout - Sticky Footer */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.main-content {
+  flex: 1;
+}
+
+/* Global section spacing - Consistent margins for all sections */
+.main-content > * {
+  margin: 0 !important;
+  padding: 0;
+}
+
+/* Specific section spacing - Clean and consistent */
+.main-content app-hero-section,
+.main-content app-about,
+.main-content app-how-to-work,
+.main-content app-contact {
+  display: block;
+  margin: 0 !important;
+}
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove any unwanted margins from body */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}

@@ -1,0 +1,101 @@
+/* Simple Clean Navbar */
+.navbar {
+  background-color: #000000 !important;
+  border-bottom: 2px solid #32CD32;
+  padding: 1rem 2rem !important;
+}
+
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff !important;
+  text-decoration: none;
+}
+
+.navbar-brand:hover {
+  color: #32CD32 !important;
+}
+
+.navbar-toggler {
+  border: 2px solid #32CD32;
+  border-radius: 5px;
+}
+
+.navbar-toggler:hover {
+  background-color: #32CD32;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.nav-link {
+  color: #ffffff !important;
+  font-weight: 500;
+  padding: 0.8rem 1.2rem !important;
+  border-radius: 5px;
+}
+
+.nav-link:hover {
+  color: #000000 !important;
+  background-color: #32CD32;
+}
+
+.btn-outline-dark {
+  border: 2px solid #32CD32 !important;
+  color: #32CD32 !important;
+  background-color: transparent !important;
+  font-weight: 600;
+  padding: 0.6rem 1.5rem;
+  border-radius: 5px;
+}
+
+.btn-outline-dark:hover {
+  background-color: #32CD32 !important;
+  color: #000000 !important;
+}
+
+.btn-dark {
+  background-color: #32CD32 !important;
+  border: 2px solid #32CD32 !important;
+  color: #000000 !important;
+  font-weight: 600;
+  padding: 0.6rem 1.5rem;
+  border-radius: 5px;
+}
+
+.btn-dark:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+}
+
+/* Responsive Design */
+@media (max-width: 991.98px) {
+  .navbar {
+    padding: 0.5rem 1rem !important;
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+  
+  .navbar-collapse {
+    margin-top: 1rem;
+    background-color: #000000;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid #32CD32;
+  }
+  
+  .nav-link {
+    margin: 0.2rem 0;
+    text-align: center;
+  }
+  
+  .d-flex.gap-2 {
+    margin-top: 1rem;
+    justify-content: center;
+    gap: 1rem !important;
+  }
+}

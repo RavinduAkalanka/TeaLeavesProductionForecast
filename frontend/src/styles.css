@@ -1,1 +1,104 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+
+/* Global Layout - Sticky Footer Setup */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* App root container */
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Global section spacing and alignment */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.row {
+  margin: 0;
+}
+
+.col-12, .col-lg-6, .col-md-6, .col-sm-6, .col-lg-3, .col-lg-4, .col-lg-10 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Global section consistency */
+/* section {
+  margin: 0 !important;
+  position: relative;
+} */
+
+/* Consistent section title styling */
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #32CD32, #28a745);
+  border-radius: 2px;
+}
+
+/* Smooth transitions for all interactive elements */
+*, *::before, *::after {
+  transition: all 0.3s ease;
+}
+
+/* Remove default margins from common elements */
+h1, h2, h3, h4, h5, h6, p {
+  margin-top: 0;
+}
+
+/* Ensure consistent button styling */
+.btn {
+  border-radius: 5px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 10px;
+  }
+  
+  .col-12, .col-lg-6, .col-md-6, .col-sm-6, .col-lg-3, .col-lg-4, .col-lg-10 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
