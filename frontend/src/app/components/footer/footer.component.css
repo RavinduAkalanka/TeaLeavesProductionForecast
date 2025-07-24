@@ -1,0 +1,117 @@
+/* Footer Structure - Sticky Footer at Bottom */
+.footer {
+  background-color: #000000;
+  border-top: 2px solid #32CD32;
+  color: #ffffff;
+  padding: 2rem 0;
+  margin-top: auto;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-section {
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #32CD32;
+}
+
+.footer-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.brand-icon {
+  margin-right: 0.5rem;
+}
+
+.footer-title {
+  color: #32CD32;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.footer-link:hover {
+  color: #32CD32;
+}
+
+.contact-info {
+  color: #ffffff;
+  font-size: 0.9rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 0.8rem;
+  padding: 0.3rem 0;
+}
+
+.contact-icon {
+  margin-right: 0.8rem;
+  font-size: 1.1rem;
+  min-width: 20px;
+  text-align: center;
+}
+
+.contact-text {
+  color: #ffffff;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.copyright-section {
+  padding-top: 1rem;
+}
+
+/* When logged in - only copyright shows with more padding */
+.copyright-section.logged-in {
+  padding: 1.5rem 0;
+  border-top: none;
+}
+
+.footer-copyright {
+  color: #ffffff;
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .footer-section .row {
+    text-align: center;
+  }
+  
+  .col-md-4 {
+    margin-bottom: 2rem;
+  }
+  
+  .footer-links {
+    align-items: center;
+  }
+  
+  .contact-info {
+    text-align: center;
+  }
+  
+  .contact-item {
+    justify-content: center;
+  }
+}
