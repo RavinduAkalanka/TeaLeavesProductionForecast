@@ -41,8 +41,8 @@
 
       <!-- Buttons for Non-Logged In Users -->
       <div class="d-flex gap-2 align-items-center" *ngIf="!isLoggedIn">
-        <button class="btn btn-outline-dark" type="button">Sign In</button>
-        <button class="btn btn-dark" type="button">Sign Up</button>
+        <a class="btn btn-outline-dark" routerLink="">Sign In</a>
+        <a class="btn btn-outline-dark" routerLink="/register">Sign Up</a>
       </div>
 
       <!-- Logout Button for Logged In Users -->
