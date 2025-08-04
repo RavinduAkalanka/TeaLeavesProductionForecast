@@ -49,5 +49,16 @@ namespace TeaLeavesProductionForecastWebAPI.Services
             };
         }
 
+        public async Task<string?> LoginUserAsync(LoginRequestDto request)
+        {
+            var user = await _db.Users .FirstOrDefaultAsync(u => EF.Functions.Collate(u.Email, "Latin1_General_CS_AS") == request.Email);
+
+
+            if (user == null || !PasswordHelper.VerifyPassword(request.Password, user.PasswordHash))
+                return null;
+
+            return TokenHelper.GenerateJwtToken(user.Id.ToString(), user.Email, user.Role.ToString());
+        }
+
     }
 }

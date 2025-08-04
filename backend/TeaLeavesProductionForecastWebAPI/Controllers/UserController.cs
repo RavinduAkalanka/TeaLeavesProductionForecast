@@ -39,5 +39,16 @@ namespace TeaLeavesProductionForecastWebAPI.Controllers
                 });
             }
         }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(LoginRequestDto request)
+        {
+            var token = await _userService.LoginUserAsync(request);
+
+            if (token == null)
+                return Unauthorized(new { message = "Invalid email or password" });
+
+            return Ok(new { token });
+        }
     }    
 }

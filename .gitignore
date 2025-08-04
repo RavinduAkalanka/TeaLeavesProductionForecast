@@ -6,7 +6,7 @@ obj/
 *.user
 appsettings.Development.json
 .vs/
-env/
+/backend/TeaLeavesProductionForecast/.env
 
 # Angular
 node_modules/
