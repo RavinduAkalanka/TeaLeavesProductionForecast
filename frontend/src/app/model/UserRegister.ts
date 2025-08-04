@@ -7,3 +7,9 @@ export interface UserRegister {
   estate?: string;
   role: string;
 }
+
+export interface UserLogin {
+  email: string;
+  password: string;
+}
+

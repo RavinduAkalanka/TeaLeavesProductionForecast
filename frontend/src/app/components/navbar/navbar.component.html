@@ -35,19 +35,19 @@
           <a class="nav-link" href="#" aria-label="Prediction">Prediction</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" aria-label="Profile Settings">Profile Settings</a>
+          <a class="nav-link" href="#" aria-label="Profile Settings">Profile</a>
         </li>
       </ul>
 
       <!-- Buttons for Non-Logged In Users -->
       <div class="d-flex gap-2 align-items-center" *ngIf="!isLoggedIn">
-        <a class="btn btn-outline-dark" routerLink="">Sign In</a>
+        <a class="btn btn-outline-dark" routerLink="/login">Sign In</a>
         <a class="btn btn-outline-dark" routerLink="/register">Sign Up</a>
       </div>
 
       <!-- Logout Button for Logged In Users -->
       <div class="d-flex gap-2 align-items-center" *ngIf="isLoggedIn">
-        <button class="btn btn-outline-dark" type="button">Logout</button>
+        <button class="btn btn-outline-dark" type="button" (click)="logout()">Logout</button>
       </div>
     </div>
   </div>

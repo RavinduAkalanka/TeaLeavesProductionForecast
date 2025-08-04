@@ -3,13 +3,19 @@ using TeaLeavesProductionForecastWebAPI.Services;
 using Microsoft.EntityFrameworkCore;
 using DotNetEnv;
 using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Load environment variables from .env
 Env.Load();
 var dbConn = Environment.GetEnvironmentVariable("DB_CONNECTION");
-Console.WriteLine($"DB Connection String: {dbConn}");
+var jwtIssuer = Environment.GetEnvironmentVariable("JWT_ISSUER");
+var jwtAudience = Environment.GetEnvironmentVariable("JWT_AUDIENCE");
+var jwtSecret = Environment.GetEnvironmentVariable("JWT_SECRET");
 
 // Register DbContext as Singleton
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -17,6 +23,20 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 // Register services
 builder.Services.AddScoped<IUserService, UserService>();
+
+builder.Services.AddAuthentication("Bearer")
+    .AddJwtBearer("Bearer", options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = jwtIssuer,
+            ValidAudience = jwtAudience,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSecret!))
+        };
+    });
 
 // Add controllers and configure JSON enum conversion globally
 builder.Services.AddControllers()
