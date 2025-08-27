@@ -10,6 +10,9 @@ import { UserService } from '../../services/user.service';
 import { ToasterService } from '../../services/toaster.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { jwtDecode } from 'jwt-decode';
+
+
 
 @Component({
   selector: 'app-login-page',
@@ -45,7 +48,18 @@ export class LoginPageComponent implements OnInit {
       console.log('Form Data:', formData);
       this.userService.loginUser(formData).subscribe({
         next: (response: any) => {
-          this.authService.setToken(response.token);
+          const token = response.token;
+          this.authService.setToken(token);
+
+          try {
+            const decoded: any = jwtDecode(token);
+            const userId = decoded.sub || decoded['User ID'];
+            sessionStorage.setItem('userId', userId);
+            console.log('Decoded user ID:', userId);
+          } catch (err) {
+            console.error('Token decoding failed:', err);
+          }
+
           this.resetForm();
           this.toasterService.success('Login successfully!');
           this.router.navigate(['/dashboard']);

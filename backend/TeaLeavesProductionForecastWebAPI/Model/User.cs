@@ -13,6 +13,8 @@ namespace TeaLeavesProductionForecastWebAPI.Model
         public string Area { get; set; }
         public string Estate { get; set; }
         public Role Role { get; set; }
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime? CreatedAt { get; set; } = DateTime.Now;
+        public DateTime? UpdatedAt { get; set; } = DateTime.Now;
     }
+
 }

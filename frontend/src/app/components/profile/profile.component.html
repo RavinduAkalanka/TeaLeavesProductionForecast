@@ -1,0 +1,99 @@
+<div class="profile-container">
+  <div class="container-fluid">
+    <div class="profile-header">
+      <h2>Profile Settings</h2>
+      <p>Manage your account information</p>
+    </div>
+
+    <div class="row">
+      <!-- Left Side - Profile Form -->
+      <div class="col-lg-8">
+        <div class="profile-content">
+          <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="profile-form">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Full Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="fullName"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label>Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    formControlName="email"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label>Phone</label>
+                  <input
+                    type="tel"
+                    class="form-control"
+                    formControlName="phone"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Area</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="area"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label>Estate</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="estate"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label>Role</label>
+                  <select class="form-control" formControlName="role">
+                    <option value="owner">Owner</option>
+                    <option value="manager">Manager</option>
+                    <option value="supervisor">Supervisor</option>
+                    <option value="others">Others</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">
+                Update Profile
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Right Side - Reset Password Section -->
+      <div class="col-lg-4">
+        <div class="reset-password-section">
+          <div class="reset-header">
+            <h3>Security Settings</h3>
+            <p>Manage your password and security preferences</p>
+          </div>
+          <div class="reset-actions">
+            <button type="button" class="btn btn-secondary">
+              Reset Password
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

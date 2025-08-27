@@ -60,5 +60,48 @@ namespace TeaLeavesProductionForecastWebAPI.Services
             return TokenHelper.GenerateJwtToken(user.Id.ToString(), user.Email, user.Role.ToString());
         }
 
+        public async Task<UserResponseDto?> GetUserByIdAsync(int userId)
+        {
+            var user = await _db.Users.FirstOrDefaultAsync(u => u.Id == userId);
+
+            if (user == null)
+                return null;
+
+            return new UserResponseDto
+            {
+                Id = user.Id,
+                FullName = user.FullName,
+                Email = user.Email,
+                Phone = user.Phone,
+                Area = user.Area,
+                Estate = user.Estate,
+                Role = user.Role.ToString()
+            };
+        }
+
+        public async Task<string?> UpdateUserAsync(int id, UpdateUserDto dto)
+        {
+            var user = await _db.Users.FirstOrDefaultAsync(u => u.Id == id);
+
+            if (user == null)
+                return null;
+
+            bool emailExists = await _db.Users.AnyAsync(u => u.Email == dto.Email && u.Id != id);
+            if (emailExists)
+                throw new Exception("Email already exists.");
+
+            user.FullName = dto.FullName;
+            user.Email = dto.Email;
+            user.Phone = dto.Phone;
+            user.Area = dto.Area;
+            user.Estate = dto.Estate;
+            user.Role = dto.Role;
+            user.UpdatedAt = DateTime.Now;
+
+            await _db.SaveChangesAsync();
+
+            return "User updated successfully";
+        }
+
     }
 }
