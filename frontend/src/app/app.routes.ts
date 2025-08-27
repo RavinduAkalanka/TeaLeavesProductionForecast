@@ -3,6 +3,8 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { AuthGuard } from './auth.guard';
 
 export const routes: Routes = [
     {
@@ -19,6 +21,12 @@ export const routes: Routes = [
     },
     {
       path: 'dashboard',
-      component: DashboardComponent
+      component: DashboardComponent,
+      canActivate: [AuthGuard]
+    },
+    {
+      path: 'profile',
+      component: ProfileComponent,
+      canActivate: [AuthGuard]
     }
 ];

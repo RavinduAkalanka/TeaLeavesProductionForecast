@@ -13,3 +13,21 @@ export interface UserLogin {
   password: string;
 }
 
+export interface User {
+  id: number;
+  fullName: string;
+  email: string;
+  phone?: string;
+  area?: string;
+  estate?: string;
+  role: string;
+}
+
+export interface UserUpdate {
+  fullName: string;
+  email: string;
+  phone?: string;
+  area?: string;
+  estate?: string;
+  role: string;
+}

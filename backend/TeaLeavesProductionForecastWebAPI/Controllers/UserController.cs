@@ -50,5 +50,27 @@ namespace TeaLeavesProductionForecastWebAPI.Controllers
 
             return Ok(new { token });
         }
-    }    
+
+        [HttpGet("user/{id}")]
+        public async Task<IActionResult> GetUserById(int id)
+        {
+            var user = await _userService.GetUserByIdAsync(id);
+
+            if (user == null)
+                return NotFound(new { message = "User not found" });
+
+            return Ok(user);
+        }
+
+        [HttpPut("user/{id}")]
+        public async Task<IActionResult> UpdateUser(int id, [FromBody] UpdateUserDto dto)
+        {
+            var result = await _userService.UpdateUserAsync(id, dto);
+
+            if (result == null)
+                return NotFound(new { message = "User not found" });
+
+            return Ok(new { message = result });
+        }
+    }
 }
