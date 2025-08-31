@@ -10,10 +10,11 @@ import {
 } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { ToasterService } from '../../services/toaster.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-register-page',
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule,RouterModule],
   templateUrl: './register-page.component.html',
   styleUrl: './register-page.component.css',
 })

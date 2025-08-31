@@ -1,1 +1,212 @@
-<p>dashboard works!</p>
+<div class="dashboard-container container-fluid py-4">
+  <!-- Welcome Message Top Right -->
+  <div
+    class="d-flex justify-content-end align-items-center"
+    style="height: 40px"
+  >
+    <div class="welcome-card px-4 py-2">
+      <h6 class="fw-bold m-0">
+        Welcome, <span class="text-success">{{ UserDetails?.fullName }}</span
+        >!
+      </h6>
+    </div>
+  </div>
+  <!-- Centered Dashboard Title & Subtitle -->
+  <div class="dashboard-title text-center mb-3">
+    <h2 class="m-0">Dashboard</h2>
+    <p>View your tea leaves predictions Analysis</p>
+  </div>
+  <!-- Summary Cards -->
+  <div class="row g-3 mb-4">
+    <div class="col-12 col-sm-6 col-lg-3">
+      <div class="card summary-card shadow-sm h-100">
+        <div class="card-body text-center">
+          <h6 class="card-title mb-2">
+            Total Predictions Made ({{ currentMonthName }})
+          </h6>
+          <p class="summary-value mb-0">{{ totalPredictions }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-3">
+      <div class="card summary-card shadow-sm h-100">
+        <div class="card-body text-center">
+          <h6 class="card-title mb-2">
+            Average Predicted Yield (kg) ({{ currentMonthName }})
+          </h6>
+          <p class="summary-value mb-0">
+            {{ avgPredictedYield | number : "1.2-2" }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-3">
+      <div class="card summary-card shadow-sm h-100">
+        <div class="card-body text-center">
+          <h6 class="card-title mb-2">
+            Highest Predicted Yield ({{ currentMonthName }})
+          </h6>
+          <p class="summary-value mb-0">
+            {{ highestPredictedYield | number : "1.2-2" }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-3">
+      <div class="card summary-card shadow-sm h-100">
+        <div class="card-body text-center">
+          <h6 class="card-title mb-2">
+            Lowest Predicted Yield ({{ currentMonthName }})
+          </h6>
+          <p class="summary-value mb-0">
+            {{ lowestPredictedYield | number : "1.2-2" }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Prediction Table Section -->
+  <div class="card mb-4 shadow-sm">
+    <div class="card-body">
+      <div class="d-flex flex-wrap align-items-center mb-3 gap-2">
+        <h5 class="mb-0 me-auto">Predictions</h5>
+        <label class="form-label mb-0 me-2">From</label>
+        <input
+          type="date"
+          class="form-control form-control-sm me-2"
+          style="max-width: 150px"
+          [(ngModel)]="filterFrom"
+        />
+        <label class="form-label mb-0 me-2">To</label>
+        <input
+          type="date"
+          class="form-control form-control-sm"
+          style="max-width: 150px"
+          [(ngModel)]="filterTo"
+        />
+
+        <!--Apply Button-->
+        <button class="btn btn-sm btn-primary" (click)="applyDateFilter()">
+          Apply
+        </button>
+
+        <!--Clear Button-->
+        <button class="btn btn-sm btn-secondary" (click)="clearDateFilter()">
+          Clear
+        </button>
+
+        <!--Save PDF Button-->
+        <button class="btn btn-sm btn-success" (click)="exportToPDF()">
+          Save PDF
+        </button>
+      </div>
+
+      <div class="table-responsive">
+        <table
+          class="table table-bordered table-hover align-middle mb-0 prediction-table"
+        >
+          <thead class="table-light">
+            <tr>
+              <th style="text-align: center">Date</th>
+              <th style="text-align: center">Plant Count</th>
+              <th style="text-align: center">Fertilizer</th>
+              <th style="text-align: center">Pruning</th>
+              <th style="text-align: center">Soil pH</th>
+              <th style="text-align: center">Avg Rainfall</th>
+              <th style="text-align: center">Avg Temp</th>
+              <th style="text-align: center">Avg Humidity</th>
+              <th style="text-align: center">Predicted Yield</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let prediction of PagePredictionLists">
+              <td style="text-align: center">
+                {{ prediction.createdAt | date : "yyyy-MM-dd" }}
+              </td>
+              <td style="text-align: end">{{ prediction.plantCount }}</td>
+              <td style="text-align: center">
+                {{ prediction.fertilizerType }}
+              </td>
+              <td style="text-align: center">{{ prediction.pruning }}</td>
+              <td style="text-align: end">{{ prediction.soilPH }}</td>
+              <td style="text-align: end">{{ prediction.avgRainfall }}</td>
+              <td style="text-align: end">
+                {{ prediction.averageTemperature }}
+              </td>
+              <td style="text-align: end">
+                {{ prediction.avgHumidityPercent }}
+              </td>
+              <td style="text-align: end">
+                {{ prediction.predictionResult | number : "1.2-2" }}
+              </td>
+            </tr>
+            <tr *ngIf="PagePredictionLists.length === 0">
+              <td colspan="10" class="text-center text-muted">
+                No data available
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination Controls -->
+      <nav class="mt-3">
+        <ul class="pagination justify-content-center mb-0">
+          <!-- Previous button -->
+          <li class="page-item" [class.disabled]="currentPage === 1">
+            <button class="page-link" (click)="changePage(currentPage - 1)">
+              Previous
+            </button>
+          </li>
+
+          <!-- Previous page number -->
+          <li class="page-item" *ngIf="currentPage > 1">
+            <button class="page-link" (click)="changePage(currentPage - 1)">
+              {{ currentPage - 1 }}
+            </button>
+          </li>
+
+          <!-- Current page -->
+          <li class="page-item active">
+            <button class="page-link">{{ currentPage }}</button>
+          </li>
+
+          <!-- Next page number -->
+          <li class="page-item" *ngIf="currentPage < totalPages">
+            <button class="page-link" (click)="changePage(currentPage + 1)">
+              {{ currentPage + 1 }}
+            </button>
+          </li>
+
+          <!-- Next button -->
+          <li class="page-item" [class.disabled]="currentPage === totalPages">
+            <button class="page-link" (click)="changePage(currentPage + 1)">
+              Next
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Line Chart Section -->
+  <div class="card shadow-sm mb-4">
+    <div class="card-body">
+      <h5 class="mb-3">
+        Predicted Yield Over Time - {{ UserDetails?.estate }} Estate
+      </h5>
+      <div
+        class="chart-placeholder d-flex align-items-center justify-content-center"
+        style="height: 300px"
+      >
+        <canvas id="yieldLineChart" width="100%" height="300"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Optional: show message if no data -->
+  <p *ngIf="PredictionList.length === 0" class="text-center text-muted">
+    No prediction data available.
+  </p>
+</div>

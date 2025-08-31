@@ -17,13 +17,15 @@ var jwtIssuer = Environment.GetEnvironmentVariable("JWT_ISSUER");
 var jwtAudience = Environment.GetEnvironmentVariable("JWT_AUDIENCE");
 var jwtSecret = Environment.GetEnvironmentVariable("JWT_SECRET");
 
-// Register DbContext as Singleton
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(dbConn), ServiceLifetime.Singleton);
+    options.UseSqlServer(dbConn)); 
 
 // Register services
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddHttpClient<IPredictionService, PredictionService>();
+builder.Services.AddScoped<IDashboardService, DashboardService>();
+builder.Services.AddScoped<IMailService, MailService>();
+
 
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", options =>

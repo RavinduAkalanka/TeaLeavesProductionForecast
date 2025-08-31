@@ -8,5 +8,9 @@ namespace TeaLeavesProductionForecastWebAPI.Services
         Task<string?> LoginUserAsync(LoginRequestDto dto);
         Task<UserResponseDto?> GetUserByIdAsync(int userId);
         Task<string?> UpdateUserAsync(int id, UpdateUserDto dto);
+        Task<bool> SendResetPasswordEmailAsync(int userId);
+        Task<bool> VerifyOtpAndResetPasswordAsync(int userId, string otp, string newPassword);
+        Task<bool> SendResetPasswordEmailByEmailAsync(string email);
+        Task<bool> VerifyOtpAndResetPasswordByEmailAsync(string email, string otp, string newPassword);
     }
 }
