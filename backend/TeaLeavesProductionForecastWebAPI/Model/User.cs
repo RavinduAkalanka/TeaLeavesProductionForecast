@@ -15,6 +15,8 @@ namespace TeaLeavesProductionForecastWebAPI.Model
         public Role Role { get; set; }
         public DateTime? CreatedAt { get; set; } = DateTime.Now;
         public DateTime? UpdatedAt { get; set; } = DateTime.Now;
+        public string? PasswordResetOtp { get; set; }
+        public DateTime? OtpExpiry { get; set; }
     }
 
 }

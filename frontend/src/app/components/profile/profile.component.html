@@ -9,7 +9,11 @@
       <!-- Left Side - Profile Form -->
       <div class="col-lg-8">
         <div class="profile-content">
-          <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="profile-form">
+          <form
+            [formGroup]="profileForm"
+            (ngSubmit)="onSubmit()"
+            class="profile-form"
+          >
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
@@ -88,11 +92,60 @@
             <p>Manage your password and security preferences</p>
           </div>
           <div class="reset-actions">
-            <button type="button" class="btn btn-secondary">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              (click)="openOtpModalAndSendEmail()"
+            >
               Reset Password
             </button>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="otpModal"
+  tabindex="-1"
+  aria-labelledby="otpModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="otpModalLabel">Reset Password</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <input
+          type="text"
+          class="form-control mb-2"
+          [(ngModel)]="otp"
+          placeholder="Enter OTP"
+        />
+        <input
+          type="password"
+          class="form-control mb-2"
+          [(ngModel)]="newPassword"
+          placeholder="Enter New Password"
+        />
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="verifyOtpAndResetPassword()"
+        >
+          Reset
+        </button>
       </div>
     </div>
   </div>

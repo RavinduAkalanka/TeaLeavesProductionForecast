@@ -1,6 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User, UserLogin, UserRegister, UserUpdate } from '../model/UserRegister';
+import {
+  User,
+  UserLogin,
+  UserRegister,
+  UserUpdate,
+} from '../model/UserRegister';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
@@ -25,6 +30,22 @@ export class UserService {
   }
 
   updateUser(id: number, data: UserUpdate): Observable<any> {
-  return this.http.put(`${this.primaryUrl}/user/${id}`, data);
-}
+    return this.http.put(`${this.primaryUrl}/user/${id}`, data);
+  }
+
+  sendResetPasswordEmail(userId: number): Observable<any> {
+    return this.http.post(`${this.primaryUrl}/send-reset-password`, { userId });
+  }
+
+  verifyOtpAndResetPassword(payload: { userId: number, otp: string, newPassword: string }): Observable<any> {
+    return this.http.post(`${this.primaryUrl}/verify-reset-password-otp`, payload);
+  }
+
+  sendResetPasswordEmailByEmail(email: string): Observable<any>  {
+    return this.http.post(`${this.primaryUrl}/send-reset-password-by-email`, { email });
+  }
+
+  verifyOtpWithEmailAndResetPassword(payload: { email: string; otp: string; newPassword: string }): Observable<any> {
+    return this.http.post(`${this.primaryUrl}/verify-reset-password-emailwith-otp`, payload);
+  }
 }

@@ -1,0 +1,230 @@
+.dashboard-title {
+	margin-top: -35px;
+}
+.dashboard-title h2 {
+	font-size: 2rem;
+	font-weight: 700;
+	color: #2e7d32;
+	letter-spacing: 1px;
+	margin-bottom: 0.2rem;
+}
+.dashboard-title p {
+	margin-top: 0.2rem;
+	margin-bottom: 0;
+	font-size: 1.05rem;
+	color: #4b4b4b;
+	font-weight: 500;
+	letter-spacing: 0.2px;
+	text-align: center;
+}
+/* Dashboard subtitle under title */
+.dashboard-title p {
+	margin-top: 0.2rem;
+	margin-bottom: 0;
+	font-size: 1.05rem;
+	color: #4b4b4b;
+	font-weight: 500;
+	letter-spacing: 0.2px;
+	text-align: center !important;
+}
+/* Dashboard Header Row */
+.dashboard-header {
+	width: 100%;
+}
+/* Dashboard Page Title */
+.dashboard-title h2 {
+	font-size: 2rem;
+	font-weight: 700;
+	color: black;
+	letter-spacing: 1px;
+	margin-bottom: 0.5rem;
+    text-align: center !important;
+}
+/* Welcome Message Card */
+.welcome-card {
+	background: #f8fafc;
+	border-radius: 0.5rem;
+	box-shadow: 0 1px 4px rgba(46,125,50,0.07);
+	border: 1px solid #e3e6ea;
+	display: inline-block;
+	transition: box-shadow 0.15s;
+	padding: 0.5rem 1rem !important;
+    margin-top: -10px;
+}
+.welcome-card h4 {
+	font-weight: 600;
+}
+.welcome-card:hover {
+	box-shadow: 0 2px 8px rgba(46,125,50,0.11);
+}
+/* Date Filter & Action Buttons */
+
+/* Beautiful Action Buttons */
+
+/* Simple, clean action buttons */
+.dashboard-container .btn {
+	min-width: 90px;
+	height: 32px;
+	font-size: 0.97rem;
+	font-weight: 600;
+	border-radius: 0.4rem;
+	margin-right: 0.3rem;
+	text-transform: none;
+	border-width: 1.5px;
+	box-shadow: none;
+	outline: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	transition: background 0.15s, color 0.15s, border 0.15s;
+}
+.dashboard-container .btn:last-child {
+	margin-right: 0;
+}
+.dashboard-container .btn-primary {
+	background: #2e7d32;
+	border-color: #2e7d32;
+	color: #fff;
+}
+.dashboard-container .btn-primary:hover,
+.dashboard-container .btn-primary:focus {
+	background: #1b5e20;
+	border-color: #1b5e20;
+	color: #fff;
+}
+.dashboard-container .btn-secondary {
+	background: #e3e6ea;
+	border-color: #b2b9be;
+	color: #2e7d32;
+}
+.dashboard-container .btn-secondary:hover,
+.dashboard-container .btn-secondary:focus {
+	background: #b2b9be;
+	color: #fff;
+	border-color: #2e7d32;
+}
+.dashboard-container .btn-success {
+	background: #d32f2f;
+	border-color: #d32f2f;
+	color: #fff;
+}
+.dashboard-container .btn-success:hover,
+.dashboard-container .btn-success:focus {
+	background: #b71c1c;
+	border-color: #b71c1c;
+	color: #fff;
+}
+/* Pagination Controls */
+.dashboard-container .pagination {
+	justify-content: flex-end !important;
+	margin-top: 1rem;
+}
+.dashboard-container .page-item {
+	margin-left: 0.25rem;
+	margin-right: 0.25rem;
+}
+.dashboard-container .page-link {
+	border-radius: 0.5rem;
+	border: 1px solid #2e7d32;
+	color: #2e7d32;
+	background: #f8fafc;
+	font-weight: 500;
+	transition: background 0.2s, color 0.2s;
+}
+.dashboard-container .page-link:hover,
+.dashboard-container .page-link:focus {
+	background: #e3e6ea;
+	color: #1b5e20;
+	border-color: #1b5e20;
+}
+.dashboard-container .page-item.active .page-link {
+	background: #2e7d32;
+	color: #fff;
+	border-color: #2e7d32;
+	box-shadow: 0 2px 8px rgba(46,125,50,0.08);
+}
+.dashboard-container .page-item.disabled .page-link {
+	color: #b2b9be;
+	background: #f8fafc;
+	border-color: #e3e6ea;
+	cursor: not-allowed;
+}
+/* Dashboard Container */
+.dashboard-container {
+	background: #f8fafc;
+	min-height: 100vh;
+    margin-top: 90px;
+}
+
+/* Summary Cards */
+.summary-card {
+	border: 1px solid #e3e6ea;
+	background: #fff;
+	transition: box-shadow 0.2s;
+	border-radius: 0.75rem;
+}
+.summary-card:hover {
+	box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+}
+.summary-value {
+	font-size: 2rem;
+	font-weight: 600;
+	color: #2e7d32;
+	letter-spacing: 1px;
+}
+
+/* Table Section */
+.prediction-table th, .prediction-table td {
+	white-space: nowrap;
+	font-size: 0.97rem;
+}
+.prediction-table th {
+	background: #e3e6ea;
+	color: #2e7d32;;
+	font-weight: 600;
+	border-bottom: 2px solid #b2b9be;
+}
+.prediction-table td {
+	background: #fff;
+}
+.table-responsive {
+	border-radius: 0.5rem;
+	overflow-x: auto;
+}
+.pagination .page-item .page-link {
+    cursor: pointer;
+  }
+  .pagination .page-item.disabled .page-link {
+    cursor: not-allowed;
+  }
+  .pagination .page-item.active .page-link {
+    background-color: #2e7d32;
+    border-color: #2e7d32;
+    color: #fff;
+}
+
+/* Chart Placeholder */
+.chart-placeholder {
+	background: linear-gradient(90deg, #e3e6ea 0%, #f8fafc 100%);
+	border: 1px dashed #b2b9be;
+	border-radius: 0.75rem;
+}
+
+/* Card Titles */
+.card-title, h5 {
+	color: black;
+	font-weight: 600;
+}
+
+/* Responsive Spacing */
+@media (max-width: 576px) {
+	.summary-value {
+		font-size: 1.3rem;
+	}
+	.dashboard-container {
+		padding: 0.5rem;
+	}
+	.card-body {
+		padding: 1rem;
+	}
+}

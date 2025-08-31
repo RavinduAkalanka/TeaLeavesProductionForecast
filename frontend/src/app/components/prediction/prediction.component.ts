@@ -72,7 +72,7 @@ export class PredictionComponent implements OnInit {
   }
 
   resetForm(): void {
-    this.predictionForm.reset();
+    window.location.reload();
   }
 
   onSubmit(): void {

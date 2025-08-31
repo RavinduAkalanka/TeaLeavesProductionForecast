@@ -224,6 +224,10 @@
   text-decoration: underline;
 }
 
+#resetbtn {
+   background-color:#32CD32 !important ;
+}
+
 /* Animations */
 @keyframes slideInUp {
   to {

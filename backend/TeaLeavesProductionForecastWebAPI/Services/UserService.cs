@@ -4,6 +4,8 @@ using TeaLeavesProductionForecastWebAPI.Enums;
 using TeaLeavesProductionForecastWebAPI.Helpers;
 using TeaLeavesProductionForecastWebAPI.Model;
 using Microsoft.EntityFrameworkCore;
+using System.Net.Mail;
+using System.Net;
 
 
 namespace TeaLeavesProductionForecastWebAPI.Services
@@ -11,10 +13,12 @@ namespace TeaLeavesProductionForecastWebAPI.Services
     public class UserService : IUserService
     {
         private readonly AppDbContext _db;
+        private readonly IMailService _mailService;
 
-        public UserService(AppDbContext db)
+        public UserService(AppDbContext db, IMailService mailService)
         {
             _db = db;
+            _mailService = mailService;
         }
 
         public async Task<UserResponseDto> RegisterUserAsync(RegisterUserDto dto)
@@ -103,5 +107,106 @@ namespace TeaLeavesProductionForecastWebAPI.Services
             return "User updated successfully";
         }
 
+
+        public async Task<bool> SendResetPasswordEmailAsync(int userId)
+        {
+            var user = await _db.Users.FindAsync(userId);
+            if (user == null) return false;
+
+            var otp = new Random().Next(100000, 999999).ToString();
+
+            user.PasswordResetOtp = otp;
+            user.OtpExpiry = DateTime.UtcNow.AddMinutes(10);
+            await _db.SaveChangesAsync();
+
+            try
+            {
+                string subject = "Reset Password OTP";
+                string body = $"Your OTP is: {otp}. It expires in 10 minutes.";
+
+                await _mailService.SendEmailAsync(user.Email, subject, body);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Email sending failed: " + ex.Message);
+                return false;
+            }
+        }
+
+
+        public async Task<bool> VerifyOtpAndResetPasswordAsync(int userId, string otp, string newPassword)
+        {
+            var user = await _db.Users.FindAsync(userId);
+            if (user == null) return false;
+
+            // Check if OTP matches
+            if (user.PasswordResetOtp != otp)
+                throw new Exception("Invalid OTP");
+
+            // Check if OTP is expired
+            if (user.OtpExpiry == null || user.OtpExpiry < DateTime.UtcNow)
+                throw new Exception("OTP has expired");
+
+            // Hash the new password before saving
+            user.PasswordHash = PasswordHelper.HashPassword(newPassword);
+
+            // Clear OTP fields
+            user.PasswordResetOtp = null;
+            user.OtpExpiry = null;
+            user.UpdatedAt = DateTime.Now;
+
+            await _db.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<bool> SendResetPasswordEmailByEmailAsync(string email)
+        {
+            // Find user by email
+            var user = await _db.Users.FirstOrDefaultAsync(u => u.Email == email);
+            if (user == null) return false;
+
+            // Generate OTP
+            var otp = new Random().Next(100000, 999999).ToString();
+            user.PasswordResetOtp = otp;
+            user.OtpExpiry = DateTime.UtcNow.AddMinutes(10);
+
+            await _db.SaveChangesAsync();
+
+            try
+            {
+                string subject = "Reset Password OTP";
+                string body = $"Your OTP is: {otp}. It expires in 10 minutes.";
+
+                await _mailService.SendEmailAsync(user.Email, subject, body);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Email sending failed: " + ex.Message);
+                return false;
+            }
+        }
+
+        public async Task<bool> VerifyOtpAndResetPasswordByEmailAsync(string email, string otp, string newPassword)
+        {
+            var user = await _db.Users.FirstOrDefaultAsync(u => u.Email == email);
+            if (user == null) return false;
+
+            if (user.PasswordResetOtp != otp)
+                throw new Exception("Invalid OTP");
+
+            if (user.OtpExpiry == null || user.OtpExpiry < DateTime.UtcNow)
+                throw new Exception("OTP has expired");
+
+            user.PasswordHash = PasswordHelper.HashPassword(newPassword);
+
+            user.PasswordResetOtp = null;
+            user.OtpExpiry = null;
+            user.UpdatedAt = DateTime.UtcNow;
+
+            await _db.SaveChangesAsync();
+            return true;
+        }
     }
 }

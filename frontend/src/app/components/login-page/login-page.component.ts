@@ -3,25 +3,30 @@ import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
+  FormsModule,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { ToasterService } from '../../services/toaster.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { jwtDecode } from 'jwt-decode';
-
-
+import * as bootstrap from 'bootstrap';
 
 @Component({
   selector: 'app-login-page',
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, RouterModule, FormsModule],
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.css',
 })
 export class LoginPageComponent implements OnInit {
   loginForm!: FormGroup;
+
+  otp = '';
+  newPassword = '';
+  email = '';
+  step: number = 1;
 
   constructor(
     private fb: FormBuilder,
@@ -74,6 +79,64 @@ export class LoginPageComponent implements OnInit {
     } else {
       this.toasterService.error('Please fill in all required fiels correctly.');
     }
+  }
+
+  openOtpModal() {
+    this.step = 1;
+    const modalEl = document.getElementById('otpModal');
+    if (modalEl) {
+      const modal = new bootstrap.Modal(modalEl);
+      modal.show();
+    }
+  }
+  Error: string = '';
+  sendEmail() {
+    if (!this.email) {
+      this.Error = 'Please enter your email';
+      return;
+    }
+
+    this.userService.sendResetPasswordEmailByEmail(this.email).subscribe({
+      next: (res) => {
+        this.toasterService.success('OTP sent to your email!');
+        this.step = 2;
+      },
+      error: (err) => {
+        console.log(err);
+        this.toasterService.error('Failed to send OTP');
+      },
+    });
+  }
+
+  verifyOtpAndResetPassword() {
+    if (!this.otp || !this.newPassword) {
+      this.Error = 'Please enter OTP and new password';
+      return;
+    }
+
+    this.userService.verifyOtpWithEmailAndResetPassword({
+      email: this.email,
+      otp: this.otp,
+      newPassword: this.newPassword
+    }).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.email = '';
+        this.otp = '';
+        this.newPassword = '';
+        this.step = 1;
+        const modalEl = document.getElementById('otpModal');
+        if (modalEl) {
+          const modal = bootstrap.Modal.getInstance(modalEl);
+          modal?.hide();
+        }
+        this.toasterService.success('Password reset successful!');
+      },
+      error: (err) => {
+        console.log(err);
+        this.toasterService.error('Failed to reset password');
+      }
+    });
   }
 
   logout(): void {

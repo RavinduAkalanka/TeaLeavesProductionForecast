@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   position: relative;
-  margin-top: 90px;
+  margin-top: 50px;
 }
 
 .register-section::before {
