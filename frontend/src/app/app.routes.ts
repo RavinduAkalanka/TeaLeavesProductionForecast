@@ -5,6 +5,7 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuard } from './auth.guard';
+import { PredictionComponent } from './components/prediction/prediction.component';
 
 export const routes: Routes = [
     {
@@ -27,6 +28,11 @@ export const routes: Routes = [
     {
       path: 'profile',
       component: ProfileComponent,
+      canActivate: [AuthGuard]
+    },
+    {
+      path: 'prediction',
+      component: PredictionComponent,
       canActivate: [AuthGuard]
     }
 ];

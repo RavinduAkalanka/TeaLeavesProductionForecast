@@ -23,8 +23,9 @@ __pycache__/
 *.pyd
 .Python
 env/
-venv/
-*.egg-info/
+ai-model/.venv/        
+ai-model/models/*.pkl  
+ai-model/src/*.log
 
 # IDE and OS files
 .vscode/
