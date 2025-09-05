@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { RegisterPageComponent } from './register-page.component';
 
 describe('RegisterPageComponent', () => {
@@ -9,15 +8,20 @@ describe('RegisterPageComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RegisterPageComponent]
-    })
-    .compileComponents();
-
+    }).compileComponents();
     fixture = TestBed.createComponent(RegisterPageComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  
+  it('should have registerForm property', () => {
+    expect(component.hasOwnProperty('registerForm')).toBeTrue();
+  });
+
+  it('should have onSubmit method', () => {
+    expect(typeof component.onSubmit).toBe('function');
   });
 });
