@@ -1,0 +1,52 @@
+<footer class="footer">
+  <div class="container">
+    <!-- Full Footer Section - Only shown when NOT logged in -->
+    <div class="footer-section" *ngIf="!isLoggedIn">
+      <div class="row align-items-center">
+        <!-- Logo Section -->
+        <div class="col-md-4">
+          <div class="footer-brand">
+            <span class="brand-icon">🍃</span> TeaSense
+          </div>
+        </div>
+
+        <!-- Links Section -->
+        <div class="col-md-4 text-center">
+          <h6 class="footer-title">Links</h6>
+          <div class="footer-links">
+            <a href="#hero" class="footer-link">Home</a>
+            <a href="#about" class="footer-link">About</a>
+            <a href="#howtowork" class="footer-link">How to work</a>
+            <a href="#contact" class="footer-link">Contact</a>
+          </div>
+        </div>
+
+        <!-- Details Section -->
+        <div class="col-md-4 text-end">
+          <h6 class="footer-title">Details</h6>
+          <div class="contact-info">
+            <div class="contact-item">
+              <span class="contact-icon">📞</span>
+              <span class="contact-text">+94 11 234 5678</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">✉️</span>
+              <span class="contact-text">info&#64;teasense.lk</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">📍</span>
+              <span class="contact-text">Rathnapura, Sri Lanka</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright Section - Always shown, but styled differently based on login -->
+    <div class="copyright-section" [class.logged-in]="isLoggedIn">
+      <div class="text-center">
+        <p class="footer-copyright">Copyrights&#64;2025</p>
+      </div>
+    </div>
+  </div>
+</footer>

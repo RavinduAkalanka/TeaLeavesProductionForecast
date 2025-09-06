@@ -1,0 +1,325 @@
+/* Register Section Styles */
+.register-section {
+  min-height: 100vh;
+  max-height: 100vh;
+  padding: 1rem 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-top: 50px;
+}
+
+.register-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%2332CD32" opacity="0.05"/><circle cx="75" cy="75" r="1" fill="%2332CD32" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  z-index: 1;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Register Card */
+.register-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInScale 0.8s ease forwards;
+}
+
+.register-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #32CD32, #28a745);
+}
+
+.register-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 70px rgba(50, 205, 50, 0.15);
+  border-color: rgba(50, 205, 50, 0.2);
+}
+
+/* Header */
+.register-header {
+  margin-bottom: 1.5rem;
+}
+
+.register-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.register-subtitle {
+  font-size: 1.1rem;
+  color: #666666;
+  margin-bottom: 0;
+  line-height: 1.4;
+}
+
+/* Form Styles */
+.register-form {
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 0.9rem;
+  animation: slideInUp 0.6s ease forwards;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.form-label, label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 0.3rem;
+  display: block;
+}
+
+.required {
+  color: #dc3545;
+  font-weight: 700;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.9rem;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+  color: #000000;
+}
+
+.form-control:focus {
+  border-color: #32CD32;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(50, 205, 50, 0.1);
+  background-color: #ffffff;
+}
+
+.form-control:hover {
+  border-color: #32CD32;
+}
+
+.form-control.is-invalid {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.1);
+}
+
+.form-control::placeholder {
+  color: #999999;
+  font-size: 0.9rem;
+}
+
+/* Select specific styles */
+select.form-control {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px 12px;
+  cursor: pointer;
+}
+
+/* Validation Messages */
+.text-danger {
+  display: block;
+  width: 100%;
+  margin-top: 0.2rem;
+  font-size: 0.75rem;
+  color: #dc3545;
+  font-weight: 500;
+}
+
+/* Submit Button */
+.btn-register {
+  width: 100%;
+  background: linear-gradient(135deg, #32CD32 0%, #28a745 100%);
+  border: 2px solid #32CD32;
+  color: #000000;
+  padding: 0.7rem 1.5rem;
+  font-weight: 700;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.btn-register:hover:not(:disabled) {
+  background: linear-gradient(135deg, #28a745 0%, #32CD32 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(50, 205, 50, 0.3);
+  color: #000000;
+  border-color: #28a745;
+}
+
+.btn-register:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(50, 205, 50, 0.2);
+}
+
+.btn-register:disabled {
+  background: #e9ecef;
+  border-color: #dee2e6;
+  color: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Login Link */
+.login-link {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e9ecef;
+  display: block !important;
+  visibility: visible !important;
+}
+
+.login-link p {
+  font-size: 0.9rem;
+  color: #666666;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  color: #32CD32;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 0.5rem;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.btn-link:hover {
+  color: #28a745;
+  text-decoration: underline;
+}
+
+/* Animations */
+@keyframes slideInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+  .register-section {
+    padding: 3rem 0;
+  }
+  
+  .register-card {
+    padding: 2.5rem 2rem;
+  }
+  
+  .register-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .register-section {
+    padding: 2rem 0;
+    min-height: auto;
+  }
+  
+  .register-card {
+    padding: 2rem 1.5rem;
+    margin: 1rem 0;
+  }
+  
+  .register-title {
+    font-size: 2rem;
+  }
+  
+  .register-subtitle {
+    font-size: 0.95rem;
+  }
+  
+  .form-control {
+    padding: 0.75rem 0.9rem;
+    font-size: 0.9rem;
+  }
+  
+  .btn-register {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.95rem;
+  }
+  
+  .row > .col-md-6 {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .register-section {
+    padding: 1.5rem 0;
+  }
+  
+  .register-card {
+    padding: 1.5rem 1rem;
+    border-radius: 15px;
+  }
+  
+  .register-title {
+    font-size: 1.8rem;
+  }
+  
+  .register-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+  
+  .form-label, label {
+    font-size: 0.9rem;
+  }
+  
+  .form-control {
+    padding: 0.7rem 0.8rem;
+    font-size: 0.85rem;
+  }
+  
+  .btn-register {
+    padding: 0.75rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}

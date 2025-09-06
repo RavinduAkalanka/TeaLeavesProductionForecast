@@ -1,0 +1,42 @@
+<section id="hero"class="hero-section">
+  <div class="container">
+    <div class="row align-items-center min-vh-100">
+      <!-- Left Content -->
+      <div class="col-lg-6">
+        <div class="hero-content">
+          <h1 class="hero-heading">
+            Smart Forecasting for Tea Leaf Production
+          </h1>
+          <p class="hero-description">
+            Use intelligent forecasting to boost tea production in the
+            Rathnapura District. Our system uses machine learning to predict tea
+            leaf yields based on key environmental and agricultural data. Make
+            informed decisions, reduce losses, and improve productivity across
+            your plantation with reliable insights.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary hero-btn" routerLink="/register">Get Started</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Image -->
+      <div class="col-lg-6">
+        <div class="hero-image">
+          <div class="image-container">
+            <img
+              src="assets/main.jpg"
+              alt="Tea Plantation"
+              class="hero-img"
+              (error)="onImageError($event)"
+              (load)="onImageLoad($event)"
+            />
+            <div class="image-fallback">
+              <span class="fallback-text">🍃 Tea Plantation Image</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

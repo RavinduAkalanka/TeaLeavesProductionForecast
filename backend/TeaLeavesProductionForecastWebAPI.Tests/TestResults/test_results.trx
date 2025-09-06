@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="44d3ee4b-9c03-40ff-bd80-ba8005c32c0b" name="Ravindu@DESKTOP-3APFOI9 2025-09-01 23:11:54" runUser="DESKTOP-3APFOI9\Ravindu" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2025-09-01T23:11:54.0983183+05:30" queuing="2025-09-01T23:11:54.0983190+05:30" start="2025-09-01T23:11:39.4288403+05:30" finish="2025-09-01T23:11:54.1066848+05:30" />
+  <TestSettings name="default" id="bdfeb7a3-9a69-4dd5-9e9b-cba313dcb6e5">
+    <Deployment runDeploymentRoot="Ravindu_DESKTOP-3APFOI9_2025-09-01_23_11_54" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="f6765efc-454e-417c-bb98-b57d34ba12c2" testId="9ab523f1-7c1c-03bd-27a5-3538e3ad4a9e" testName="DashboardControllerTests.GetUserByIdForDashboard_ReturnsNotFound_WhenUserNull" computerName="DESKTOP-3APFOI9" duration="00:00:00.0019968" startTime="2025-09-01T23:11:53.9792914+05:30" endTime="2025-09-01T23:11:53.9792914+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f6765efc-454e-417c-bb98-b57d34ba12c2" />
+    <UnitTestResult executionId="23382622-4d17-43c5-a562-0105460717b9" testId="4ce1c282-8698-5e43-e9a6-091ea44cb1f6" testName="UserControllerTests.GetUserById_ReturnsNotFound_WhenUserNull" computerName="DESKTOP-3APFOI9" duration="00:00:00.0593532" startTime="2025-09-01T23:11:53.9785869+05:30" endTime="2025-09-01T23:11:53.9785870+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="23382622-4d17-43c5-a562-0105460717b9" />
+    <UnitTestResult executionId="0f7b86b2-cb40-4f38-9d1c-7ce5c2e4b713" testId="93bed73f-82aa-347b-5c1a-3b538d118138" testName="PredictionControllerTests.GetPrediction_ReturnsOk" computerName="DESKTOP-3APFOI9" duration="00:00:00.0593756" startTime="2025-09-01T23:11:53.9756403+05:30" endTime="2025-09-01T23:11:53.9756677+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0f7b86b2-cb40-4f38-9d1c-7ce5c2e4b713" />
+    <UnitTestResult executionId="64391eef-cd2d-40ba-8033-80f7bc2a7a87" testId="d050dba2-3951-85f4-d58d-022274cea2cf" testName="DashboardControllerTests.GetAllPredictionsByUser_ReturnsNotFound_WhenNoPredictions" computerName="DESKTOP-3APFOI9" duration="00:00:00.0593916" startTime="2025-09-01T23:11:53.9782876+05:30" endTime="2025-09-01T23:11:53.9782877+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="64391eef-cd2d-40ba-8033-80f7bc2a7a87" />
+    <UnitTestResult executionId="a3c4a700-ac59-4289-a8c5-f0b48cbb766c" testId="a5d33e2c-4915-d39b-03c3-2e4e3b8a88da" testName="UserControllerTests.GetUserById_ReturnsOk" computerName="DESKTOP-3APFOI9" duration="00:00:00.0016119" startTime="2025-09-01T23:11:53.9792571+05:30" endTime="2025-09-01T23:11:53.9792572+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a3c4a700-ac59-4289-a8c5-f0b48cbb766c" />
+    <UnitTestResult executionId="517a0d80-8da5-46e6-86c7-184683279096" testId="20734864-4ee9-4fce-4295-6b1f0abcc468" testName="DashboardControllerTests.GetAllPredictionsByUser_ReturnsOk_WhenPredictionsExist" computerName="DESKTOP-3APFOI9" duration="00:00:00.0009306" startTime="2025-09-01T23:11:53.9793489+05:30" endTime="2025-09-01T23:11:53.9793489+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="517a0d80-8da5-46e6-86c7-184683279096" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="DashboardControllerTests.GetUserByIdForDashboard_ReturnsNotFound_WhenUserNull" storage="d:\tealeavesproductionforecast\backend\tealeavesproductionforecastwebapi.tests\bin\debug\net8.0\tealeavesproductionforecastwebapi.tests.dll" id="9ab523f1-7c1c-03bd-27a5-3538e3ad4a9e">
+      <Execution id="f6765efc-454e-417c-bb98-b57d34ba12c2" />
+      <TestMethod codeBase="d:\TeaLeavesProductionForecast\backend\TeaLeavesProductionForecastWebAPI.Tests\bin\Debug\net8.0\TeaLeavesProductionForecastWebAPI.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="DashboardControllerTests" name="GetUserByIdForDashboard_ReturnsNotFound_WhenUserNull" />
+    </UnitTest>
+    <UnitTest name="UserControllerTests.GetUserById_ReturnsNotFound_WhenUserNull" storage="d:\tealeavesproductionforecast\backend\tealeavesproductionforecastwebapi.tests\bin\debug\net8.0\tealeavesproductionforecastwebapi.tests.dll" id="4ce1c282-8698-5e43-e9a6-091ea44cb1f6">
+      <Execution id="23382622-4d17-43c5-a562-0105460717b9" />
+      <TestMethod codeBase="d:\TeaLeavesProductionForecast\backend\TeaLeavesProductionForecastWebAPI.Tests\bin\Debug\net8.0\TeaLeavesProductionForecastWebAPI.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="UserControllerTests" name="GetUserById_ReturnsNotFound_WhenUserNull" />
+    </UnitTest>
+    <UnitTest name="PredictionControllerTests.GetPrediction_ReturnsOk" storage="d:\tealeavesproductionforecast\backend\tealeavesproductionforecastwebapi.tests\bin\debug\net8.0\tealeavesproductionforecastwebapi.tests.dll" id="93bed73f-82aa-347b-5c1a-3b538d118138">
+      <Execution id="0f7b86b2-cb40-4f38-9d1c-7ce5c2e4b713" />
+      <TestMethod codeBase="d:\TeaLeavesProductionForecast\backend\TeaLeavesProductionForecastWebAPI.Tests\bin\Debug\net8.0\TeaLeavesProductionForecastWebAPI.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="PredictionControllerTests" name="GetPrediction_ReturnsOk" />
+    </UnitTest>
+    <UnitTest name="DashboardControllerTests.GetAllPredictionsByUser_ReturnsOk_WhenPredictionsExist" storage="d:\tealeavesproductionforecast\backend\tealeavesproductionforecastwebapi.tests\bin\debug\net8.0\tealeavesproductionforecastwebapi.tests.dll" id="20734864-4ee9-4fce-4295-6b1f0abcc468">
+      <Execution id="517a0d80-8da5-46e6-86c7-184683279096" />
+      <TestMethod codeBase="d:\TeaLeavesProductionForecast\backend\TeaLeavesProductionForecastWebAPI.Tests\bin\Debug\net8.0\TeaLeavesProductionForecastWebAPI.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="DashboardControllerTests" name="GetAllPredictionsByUser_ReturnsOk_WhenPredictionsExist" />
+    </UnitTest>
+    <UnitTest name="DashboardControllerTests.GetAllPredictionsByUser_ReturnsNotFound_WhenNoPredictions" storage="d:\tealeavesproductionforecast\backend\tealeavesproductionforecastwebapi.tests\bin\debug\net8.0\tealeavesproductionforecastwebapi.tests.dll" id="d050dba2-3951-85f4-d58d-022274cea2cf">
+      <Execution id="64391eef-cd2d-40ba-8033-80f7bc2a7a87" />
+      <TestMethod codeBase="d:\TeaLeavesProductionForecast\backend\TeaLeavesProductionForecastWebAPI.Tests\bin\Debug\net8.0\TeaLeavesProductionForecastWebAPI.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="DashboardControllerTests" name="GetAllPredictionsByUser_ReturnsNotFound_WhenNoPredictions" />
+    </UnitTest>
+    <UnitTest name="UserControllerTests.GetUserById_ReturnsOk" storage="d:\tealeavesproductionforecast\backend\tealeavesproductionforecastwebapi.tests\bin\debug\net8.0\tealeavesproductionforecastwebapi.tests.dll" id="a5d33e2c-4915-d39b-03c3-2e4e3b8a88da">
+      <Execution id="a3c4a700-ac59-4289-a8c5-f0b48cbb766c" />
+      <TestMethod codeBase="d:\TeaLeavesProductionForecast\backend\TeaLeavesProductionForecastWebAPI.Tests\bin\Debug\net8.0\TeaLeavesProductionForecastWebAPI.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="UserControllerTests" name="GetUserById_ReturnsOk" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="9ab523f1-7c1c-03bd-27a5-3538e3ad4a9e" executionId="f6765efc-454e-417c-bb98-b57d34ba12c2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4ce1c282-8698-5e43-e9a6-091ea44cb1f6" executionId="23382622-4d17-43c5-a562-0105460717b9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="93bed73f-82aa-347b-5c1a-3b538d118138" executionId="0f7b86b2-cb40-4f38-9d1c-7ce5c2e4b713" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d050dba2-3951-85f4-d58d-022274cea2cf" executionId="64391eef-cd2d-40ba-8033-80f7bc2a7a87" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a5d33e2c-4915-d39b-03c3-2e4e3b8a88da" executionId="a3c4a700-ac59-4289-a8c5-f0b48cbb766c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="20734864-4ee9-4fce-4295-6b1f0abcc468" executionId="517a0d80-8da5-46e6-86c7-184683279096" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="6" executed="6" passed="6" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.4.5+1caef2f33e (64-bit .NET 8.0.10)&#xD;
+[xUnit.net 00:00:11.29]   Discovering: TeaLeavesProductionForecastWebAPI.Tests&#xD;
+[xUnit.net 00:00:11.31]   Discovered:  TeaLeavesProductionForecastWebAPI.Tests&#xD;
+[xUnit.net 00:00:11.31]   Starting:    TeaLeavesProductionForecastWebAPI.Tests&#xD;
+[xUnit.net 00:00:11.42]   Finished:    TeaLeavesProductionForecastWebAPI.Tests&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

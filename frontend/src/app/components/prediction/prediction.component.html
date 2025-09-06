@@ -1,0 +1,209 @@
+<div class="prediction-container">
+  <h2 class="title">Tea Leaves Production Prediction</h2>
+  <form
+    [formGroup]="predictionForm"
+    (ngSubmit)="onSubmit()"
+    class="prediction-form"
+  >
+    <div class="form-row">
+      <div class="form-group date-selector">
+        <label>Year & Month</label>
+        <div class="date-controls">
+          <div class="year-select">
+            <select formControlName="Year" class="form-control">
+              <option value="" disabled selected>Year</option>
+              <option *ngFor="let year of years" [value]="year">
+                {{ year }}
+              </option>
+            </select>
+          </div>
+          <div class="month-select">
+            <select formControlName="Month" class="form-control">
+              <option value="" disabled selected>Month</option>
+              <option
+                *ngFor="let month of months; let i = index"
+                [value]="i + 1"
+              >
+                {{ month }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div
+          class="validation-error"
+          *ngIf="
+            (predictionForm.get('Year')?.touched &&
+              predictionForm.get('Year')?.invalid) ||
+            (predictionForm.get('Month')?.touched &&
+              predictionForm.get('Month')?.invalid)
+          "
+        >
+          Both year and month are required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="plantCount">Plant Count</label>
+        <input
+          id="plantCount"
+          type="number"
+          formControlName="PlantCount"
+          class="form-control"
+          placeholder="Enter plant count"
+        />
+        <div
+          class="validation-error"
+          *ngIf="
+            predictionForm.get('PlantCount')?.touched &&
+            predictionForm.get('PlantCount')?.invalid
+          "
+        >
+          Plant count is required and must be at least 1
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="pruning">Pruning</label>
+        <select id="pruning" formControlName="Pruning" class="form-control">
+          <option value="" disabled selected>Select pruning status</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+        <div
+          class="validation-error"
+          *ngIf="
+            predictionForm.get('Pruning')?.touched &&
+            predictionForm.get('Pruning')?.invalid
+          "
+        >
+          Pruning status is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="avgRainfall">Avg Rainfall (mm)</label>
+        <input
+          id="avgRainfall"
+          type="number"
+          formControlName="AvgRainfall"
+          class="form-control"
+          placeholder="Enter avg rainfall"
+        />
+        <div
+          class="validation-error"
+          *ngIf="
+            predictionForm.get('AvgRainfall')?.touched &&
+            predictionForm.get('AvgRainfall')?.invalid
+          "
+        >
+          Average rainfall is required and must be at least 0
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="averageTemperature">Avg Temperature (°C)</label>
+        <input
+          id="averageTemperature"
+          type="number"
+          formControlName="AverageTemperature"
+          class="form-control"
+          placeholder="Enter avg temperature"
+        />
+        <div
+          class="validation-error"
+          *ngIf="
+            predictionForm.get('AverageTemperature')?.touched &&
+            predictionForm.get('AverageTemperature')?.invalid
+          "
+        >
+          Average temperature is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="avgHumidityPercent">Avg Humidity (%)</label>
+        <input
+          id="avgHumidityPercent"
+          type="number"
+          formControlName="AvgHumidityPercent"
+          class="form-control"
+          placeholder="Enter avg humidity"
+        />
+        <div
+          class="validation-error"
+          *ngIf="
+            predictionForm.get('AvgHumidityPercent')?.touched &&
+            predictionForm.get('AvgHumidityPercent')?.invalid
+          "
+        >
+          Average humidity is required and must be between 0 and 100
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="soilPH">Soil PH</label>
+        <input
+          id="soilPH"
+          type="number"
+          formControlName="SoilPH"
+          class="form-control"
+          placeholder="Enter soil PH"
+        />
+        <div
+          class="validation-error"
+          *ngIf="
+            predictionForm.get('SoilPH')?.touched &&
+            predictionForm.get('SoilPH')?.invalid
+          "
+        >
+          Soil PH is required and must be between 0 and 14
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="fertilizerType">Fertilizer Type</label>
+        <select
+          id="fertilizerType"
+          formControlName="FertilizerType"
+          class="form-control"
+        >
+          <option value="" disabled selected>Select fertilizer type</option>
+          <option value="U 709">U 709</option>
+          <option value="VPLC 880">VPLC 880</option>
+        </select>
+        <div
+          class="validation-error"
+          *ngIf="
+            predictionForm.get('FertilizerType')?.touched &&
+            predictionForm.get('FertilizerType')?.invalid
+          "
+        >
+          Fertilizer type is required
+        </div>
+      </div>
+    </div>
+    <div class="action-result-row">
+      <div class="action-column">
+        <div class="form-actions">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="predictionForm.invalid"
+          >
+            Predict
+          </button>
+          <button type="button" class="btn btn-secondary" (click)="resetForm()">
+            Reset
+          </button>
+        </div>
+      </div>
+      <div class="action-column">
+        <div class="prediction-result">
+          <h3>Prediction Result</h3>
+          <div  *ngIf="predictionResult !== null">
+            <p>Result:  {{ predictionResult | number:'1.2-2' }} Kg</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

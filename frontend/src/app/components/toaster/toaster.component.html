@@ -1,0 +1,18 @@
+<div class="toaster-container">
+  <div 
+    *ngFor="let message of messages" 
+    class="toast-message"
+    [ngClass]="'toast-' + message.type"
+  >
+    <div class="toast-content">
+      <span class="toast-text">{{ message.message }}</span>
+      <button 
+        class="toast-close" 
+        (click)="removeMessage(message.id)"
+        aria-label="Close"
+      >
+        ×
+      </button>
+    </div>
+  </div>
+</div>

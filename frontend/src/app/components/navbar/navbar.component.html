@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg fixed-top px-4">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold">
+      <span class="brand-icon">🍃</span> TeaSense
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+      <!-- Navigation Links for Non-Logged In Users -->
+      <ul class="navbar-nav mx-auto" *ngIf="!isLoggedIn">
+        <li class="nav-item">
+          <a class="nav-link" href="#hero" aria-label="Home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about" aria-label="About">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#howtowork" aria-label="How to work">How to work</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact" aria-label="Contact">Contact</a>
+        </li>
+      </ul>
+
+      <!-- Navigation Links for Logged In Users -->
+      <ul class="navbar-nav mx-auto" *ngIf="isLoggedIn">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dashboard" aria-label="Dashboard">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/prediction" aria-label="Prediction">Prediction</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/profile" aria-label="Profile Settings">Profile</a>
+        </li>
+      </ul>
+
+      <!-- Buttons for Non-Logged In Users -->
+      <div class="d-flex gap-2 align-items-center" *ngIf="!isLoggedIn">
+        <a class="btn btn-outline-dark" routerLink="/login">Sign In</a>
+        <a class="btn btn-outline-dark" routerLink="/register">Sign Up</a>
+      </div>
+
+      <!-- Logout Button for Logged In Users -->
+      <div class="d-flex gap-2 align-items-center" *ngIf="isLoggedIn">
+        <button class="btn btn-outline-dark" type="button" (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </div>
+</nav>
